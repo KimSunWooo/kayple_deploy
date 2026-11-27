@@ -1,0 +1,15 @@
+{
+  "priority": 1,
+  "request": {
+    "method": "POST",
+    "urlPath": "/v1/messages",
+    "bodyPatterns": [
+      { "matchesJsonPath": "$[?(@.to == '01000000503')]" }
+    ]
+  },
+  "response": {
+    "status": 503,
+    "headers": { "Content-Type": "application/json" },
+    "jsonBody": { "error": "TEMPORARILY_UNAVAILABLE", "message": "down" }
+  }
+}

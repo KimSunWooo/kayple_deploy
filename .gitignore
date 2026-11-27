@@ -1,0 +1,47 @@
+# env / secrets
+.env
+.env.*
+!.env.example
+**/app.env
+*.pem
+*.key
+*.p12
+*.jks
+recruit-ksw.zip
+**/recruit-ksw.pem
+**/README-server.txt
+
+# local verification scratch
+tmp-screens/
+
+# playwright
+frontend/playwright-report/
+frontend/test-results/
+frontend/blob-report/
+frontend/playwright/.cache/
+
+# node / frontend
+node_modules/
+frontend/dist/
+frontend/dist-ssr/
+*.local
+
+# java / maven
+backend/target/
+.tools/
+**/mvnw.cmd.bak
+
+# ide / os
+.idea/
+*.iml
+.vscode/
+.DS_Store
+*.swp
+*.log
+.cursor/
+.claude/
+tmp-screens/
+
+# build / deploy temp
+*.jar
+!backend/src/**/*.jar

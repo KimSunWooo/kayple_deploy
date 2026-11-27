@@ -1,0 +1,17 @@
+{
+  "request": {
+    "method": "POST",
+    "urlPath": "/v1/messages"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "messageId": "msg_e2e_default",
+      "status": "SENT"
+    },
+    "transformers": ["response-template"]
+  }
+}

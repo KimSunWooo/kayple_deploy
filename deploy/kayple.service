@@ -1,0 +1,22 @@
+[Unit]
+Description=Kayple Reservation Backend
+After=network.target mysql.service
+Wants=mysql.service
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/kayple-reservation/backend
+EnvironmentFile=/etc/kayple/app.env
+ExecStart=/usr/bin/java -jar /home/ubuntu/kayple-reservation/backend/app.jar
+Restart=on-failure
+RestartSec=5
+SuccessExitStatus=143
+
+# Hardening
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

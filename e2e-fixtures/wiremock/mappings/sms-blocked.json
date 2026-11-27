@@ -1,0 +1,15 @@
+{
+  "priority": 1,
+  "request": {
+    "method": "POST",
+    "urlPath": "/v1/messages",
+    "bodyPatterns": [
+      { "matchesJsonPath": "$[?(@.to == '01000000400')]" }
+    ]
+  },
+  "response": {
+    "status": 400,
+    "headers": { "Content-Type": "application/json" },
+    "jsonBody": { "error": "RECIPIENT_BLOCKED", "message": "blocked" }
+  }
+}

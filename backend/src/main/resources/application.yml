@@ -1,0 +1,52 @@
+server:
+  port: 8080
+  address: 127.0.0.1
+  forward-headers-strategy: framework
+  tomcat:
+    remoteip:
+      remote-ip-header: X-Forwarded-For
+      protocol-header: X-Forwarded-Proto
+  servlet:
+    session:
+      cookie:
+        name: KAYPLE_SESSION
+        http-only: true
+        same-site: lax
+        secure: ${SESSION_COOKIE_SECURE:false}
+
+spring:
+  application:
+    name: kayple-reservation
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    hikari:
+      maximum-pool-size: 20
+  sql:
+    init:
+      # CREATE TABLE IF NOT EXISTS only — never drops existing reservation data
+      mode: always
+      schema-locations: classpath:db/schema.sql
+      continue-on-error: false
+
+app:
+  admin:
+    username: ${ADMIN_USERNAME}
+    password: ${ADMIN_PASSWORD}
+  sms:
+    api-url: ${SMS_API_URL:https://sms.recruit.kayple.com/v1/messages}
+    api-key: ${SMS_API_KEY}
+    connect-timeout-ms: 3000
+    read-timeout-ms: 15000
+    worker:
+      enabled: true
+      fixed-delay-ms: 1000
+      batch-size: 5
+      processing-timeout-seconds: 90
+      max-rate-per-second: 5
+
+logging:
+  level:
+    com.kayple.reservation: INFO
+    org.springframework.security: WARN
