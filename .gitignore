@@ -29,6 +29,8 @@ frontend/dist-ssr/
 # java / maven
 backend/target/
 .tools/
+/backend/.mvn/wrapper/apache-maven-*/
+/backend/.mvn/wrapper/apache-maven-*-bin.tar.gz
 **/mvnw.cmd.bak
 
 # ide / os
@@ -40,7 +42,6 @@ backend/target/
 *.log
 .cursor/
 .claude/
-tmp-screens/
 
 # build / deploy temp
 *.jar
